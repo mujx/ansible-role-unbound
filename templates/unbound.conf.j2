@@ -52,6 +52,9 @@ server:
 {% if unbound_version is defined %}
     version: {{ unbound_version }}
 {% endif %}
+{% for include in unbound_server_includes %}
+    include: {{ include }}
+{% endfor %}
 
     num-threads: {{ unbound_num_threads }}
 {% if unbound_num_queries_per_thread is defined %}
